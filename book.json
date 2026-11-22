@@ -1,5 +1,5 @@
 {
-  "title": "Университетский учебник — шесть дисциплин",
+  "title": "Sysuew — университетский учебник",
   "year": "2026",
   "subjects": [
     {
@@ -12,28 +12,8 @@
       "index": "subjects/numerical-methods/index.qmd",
       "pages": [
         {
-          "file": "subjects/numerical-methods/lectures/01-least-squares.qmd",
-          "title": "Метод наименьших квадратов",
-          "label": "Лекция"
-        },
-        {
-          "file": "subjects/numerical-methods/lectures/02-differentiation.qmd",
-          "title": "Численное дифференцирование",
-          "label": "Лекция"
-        },
-        {
-          "file": "subjects/numerical-methods/lectures/03-integration.qmd",
-          "title": "Численное интегрирование",
-          "label": "Лекция"
-        },
-        {
-          "file": "subjects/numerical-methods/lectures/04-ode.qmd",
-          "title": "Задача Коши и методы Эйлера",
-          "label": "Лекция"
-        },
-        {
-          "file": "subjects/numerical-methods/lectures/lecture-01-gauss-sweep-jacobi-detailed.qmd",
-          "title": "Лекция 1. Численные методы",
+          "file": "subjects/numerical-methods/lectures/01-gauss-simple-iterations.qmd",
+          "title": "Лекция 1. Метод Гаусса и метод простых итераций",
           "label": "Лекция"
         }
       ]
@@ -46,7 +26,13 @@
       "tone": "probability",
       "description": "Теория вероятностей и математическая статистика",
       "index": "subjects/probability-statistics/index.qmd",
-      "pages": []
+      "pages": [
+        {
+          "file": "subjects/probability-statistics/lectures/lecture-01-multivariate-normal.qmd",
+          "title": "Лекция 1. Многомерное нормальное распределение",
+          "label": "Лекция"
+        }
+      ]
     },
     {
       "id": "cryptography",

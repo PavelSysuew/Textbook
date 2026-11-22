@@ -7,21 +7,18 @@ project:
 lang: ru
 
 book:
-  title: "Университетский учебник"
+  title: "Sysuew"
   subtitle: "Шесть дисциплин в одном электронном издании"
   chapters:
     - index.qmd
     - part: "Численные методы"
       chapters:
         - subjects/numerical-methods/index.qmd
-        - subjects/numerical-methods/lectures/01-least-squares.qmd
-        - subjects/numerical-methods/lectures/02-differentiation.qmd
-        - subjects/numerical-methods/lectures/03-integration.qmd
-        - subjects/numerical-methods/lectures/04-ode.qmd
-        - subjects/numerical-methods/lectures/lecture-01-gauss-sweep-jacobi-detailed.qmd
+        - subjects/numerical-methods/lectures/01-gauss-simple-iterations.qmd
     - part: "ТВиМС"
       chapters:
         - subjects/probability-statistics/index.qmd
+        - subjects/probability-statistics/lectures/lecture-01-multivariate-normal.qmd
     - part: "Криптография"
       chapters:
         - subjects/cryptography/index.qmd

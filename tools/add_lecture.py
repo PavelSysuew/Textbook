@@ -25,7 +25,7 @@ def make_config(data:dict)->str:
 lang: ru
 
 book:
-  title: "Университетский учебник"
+  title: "Sysuew"
   subtitle: "Шесть дисциплин в одном электронном издании"
   chapters:
     - index.qmd

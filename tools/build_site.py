@@ -44,8 +44,11 @@ def plain_text(source: str) -> str:
     source = re.sub(r'^---\s*\n.*?\n---\s*\n', '', source, flags=re.S)
     source = re.sub(r'```.*?```', ' ', source, flags=re.S)
     source = re.sub(r'\$\$.*?\$\$', ' ', source, flags=re.S)
+    source = re.sub(r'(?<!\\)\$.*?(?<!\\)\$', ' ', source, flags=re.S)
+    source = re.sub(r'^:::\s*(?:\{[^}]*\})?\s*$', ' ', source, flags=re.M)
     source = re.sub(r'<[^>]+>', ' ', source)
-    source = re.sub(r'\[!?([^\]]+)\]\([^)]*\)', r'\1', source)
+    source = re.sub(r'!\[([^\]]*)\]\([^)]*\)', r'\1', source)
+    source = re.sub(r'\[([^\]]+)\]\([^)]*\)', r'\1', source)
     source = re.sub(r'[#$*`<>|_\\{}\[\]]', ' ', source)
     return re.sub(r'\s+', ' ', source).strip()[:24000]
 
@@ -75,6 +78,9 @@ def make_toc(fragment: str) -> str:
     matches = re.findall(r'<h([23])\s+id="([^"]+)"[^>]*>(.*?)</h\1>', fragment, flags=re.S)
     links=[]
     for level, id_, raw in matches:
+        # MathML contains both a presentation and a LaTeX annotation. Keeping
+        # both makes formulas appear twice in the generated table of contents.
+        raw=re.sub(r'<annotation\b[^>]*>.*?</annotation>', '', raw, flags=re.S)
         txt=re.sub(r'<[^>]+>','',raw)
         txt=html.unescape(txt).strip()
         if not txt: continue
@@ -106,15 +112,15 @@ def render_doc(page: dict, idx: int) -> None:
 <html lang="ru" data-theme="light">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Единый университетский учебник по шести дисциплинам">
-<title>{html.escape(title)} · Университетский учебник</title>
+<meta name="description" content="Sysuew — электронный университетский учебник">
+<title>{html.escape(title)} · Sysuew</title>
 <link rel="stylesheet" href="{prefix}styles.css">
 <script>try{{let theme=localStorage.getItem('unibook_theme');if(theme==='dark'||theme==='light')document.documentElement.dataset.theme=theme;}}catch(e){{}}</script>
 </head>
 <body>
 <div class="shell">
 <aside class="sidebar" id="sidebar" aria-label="Навигация по книге">
- <a class="brand" href="{prefix}index.html"><span class="brand-icon">U<span>·</span></span><span class="brand-copy">UNIVERSITAS<small>ЛИЧНАЯ БИБЛИОТЕКА</small></span></a>
+ <a class="brand" href="{prefix}index.html"><span class="brand-icon">S<span>Y</span></span><span class="brand-copy">SYSUEW<small>ЛИЧНАЯ БИБЛИОТЕКА</small></span></a>
  <div class="sidebar-search"><div class="search-field"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search-input" type="search" autocomplete="off" aria-label="Поиск по книге" placeholder="Поиск по учебнику…"><kbd>/</kbd></div><div id="search-results" aria-live="polite"></div></div>
  <nav class="book-nav">{nav_html(page,prefix)}</nav>
  <div class="sidebar-footer"><span class="online-indicator"></span> Электронный учебник <small>6 дисциплин · единый поиск</small></div>
@@ -122,7 +128,7 @@ def render_doc(page: dict, idx: int) -> None:
 <div id="scrim" class="scrim" aria-hidden="true"></div>
 <div class="workspace">
  <header class="topbar"><div class="header-left"><button class="mobile-menu" id="menu-btn" aria-label="Открыть меню">☰</button><a href="{prefix}index.html" class="breadcrumb-root">Учебник</a><span class="crumb-sep">/</span>{subject_link}<span class="breadcrumb-current">{html.escape('Каталог дисциплин' if not subject else title)}</span></div><div class="header-right"><span class="header-capsule">{html.escape(cat)}</span><button id="theme-btn" class="theme-toggle" title="Сменить тему" aria-label="Сменить тему"><span class="theme-icon">◐</span><span class="theme-label">Тема</span></button></div></header>
- <main class="content-wrap"><div class="article-top"><span class="overline">{html.escape(cat.upper())}</span><span class="page-index">{idx+1:02d} / {len(PAGES):02d}</span></div><article class="content">{toc}{main}</article><nav class="page-pager" aria-label="Навигация по страницам">{prev_link}{next_link}</nav><footer class="footnote">Universitas · Шесть дисциплин в одной книге · HTML из Markdown + LaTeX</footer></main>
+ <main class="content-wrap"><div class="article-top"><span class="overline">{html.escape(cat.upper())}</span><span class="page-index">{idx+1:02d} / {len(PAGES):02d}</span></div><article class="content">{toc}{main}</article><nav class="page-pager" aria-label="Навигация по страницам">{prev_link}{next_link}</nav><footer class="footnote">Sysuew · Шесть дисциплин в одной книге · HTML из Markdown + LaTeX</footer></main>
 </div></div>
 <script>window.UNIBOOK_PREFIX={json.dumps(prefix)};</script>
 <script src="{prefix}assets/search-data.js"></script>

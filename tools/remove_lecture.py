@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Safely remove a lecture from the Universitas HTML textbook.
+"""Safely remove a lecture from the Sysuew HTML textbook.
 
 Usage:
   python3 tools/remove_lecture.py numerical-methods lecture01.qmd
