@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Единый университетский учебник по шести дисциплинам">
+<title>Главная · Университетский учебник</title>
+<link rel="stylesheet" href="styles.css">
+<script>try{let theme=localStorage.getItem('unibook_theme');if(theme==='dark'||theme==='light')document.documentElement.dataset.theme=theme;}catch(e){}</script>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar" id="sidebar" aria-label="Навигация по книге">
+ <a class="brand" href="index.html"><span class="brand-icon">U<span>·</span></span><span class="brand-copy">UNIVERSITAS<small>ЛИЧНАЯ БИБЛИОТЕКА</small></span></a>
+ <div class="sidebar-search"><div class="search-field"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search-input" type="search" autocomplete="off" aria-label="Поиск по книге" placeholder="Поиск по учебнику…"><kbd>/</kbd></div><div id="search-results" aria-live="polite"></div></div>
+ <nav class="book-nav"><a class="nav-home active" href="index.html"><span class="home-glyph">⌂</span> Главная страница</a>
+<div class="sidebar-caption">Дисциплины</div>
+<details class="subject-nav tone-numerical">
+<summary><span class="mini-symbol">∑</span><span class="nav-subject-title">Численные методы<small>4 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="subjects/numerical-methods/index.html">О разделе</a>
+<a class="chapter-link" href="subjects/numerical-methods/lectures/01-least-squares.html">Метод наименьших квадратов</a>
+<a class="chapter-link" href="subjects/numerical-methods/lectures/02-differentiation.html">Численное дифференцирование</a>
+<a class="chapter-link" href="subjects/numerical-methods/lectures/03-integration.html">Численное интегрирование</a>
+<a class="chapter-link" href="subjects/numerical-methods/lectures/04-ode.html">Задача Коши и методы Эйлера</a>
+</div></details>
+<details class="subject-nav tone-probability">
+<summary><span class="mini-symbol">Ω</span><span class="nav-subject-title">ТВиМС<small>0 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="subjects/probability-statistics/index.html">О разделе</a>
+</div></details>
+<details class="subject-nav tone-cryptography">
+<summary><span class="mini-symbol">⊕</span><span class="nav-subject-title">Криптография<small>0 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="subjects/cryptography/index.html">О разделе</a>
+</div></details>
+<details class="subject-nav tone-ml">
+<summary><span class="mini-symbol">◇</span><span class="nav-subject-title">Машинное обучение<small>0 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="subjects/machine-learning/index.html">О разделе</a>
+</div></details>
+<details class="subject-nav tone-db">
+<summary><span class="mini-symbol">▤</span><span class="nav-subject-title">Базы данных<small>0 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="subjects/databases/index.html">О разделе</a>
+</div></details>
+<details class="subject-nav tone-graphics">
+<summary><span class="mini-symbol">⬡</span><span class="nav-subject-title">Компьютерная графика<small>0 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="subjects/computer-graphics/index.html">О разделе</a>
+</div></details></nav>
+ <div class="sidebar-footer"><span class="online-indicator"></span> Электронный учебник <small>6 дисциплин · единый поиск</small></div>
+</aside>
+<div id="scrim" class="scrim" aria-hidden="true"></div>
+<div class="workspace">
+ <header class="topbar"><div class="header-left"><button class="mobile-menu" id="menu-btn" aria-label="Открыть меню">☰</button><a href="index.html" class="breadcrumb-root">Учебник</a><span class="crumb-sep">/</span><span class="breadcrumb-current">Каталог дисциплин</span></div><div class="header-right"><span class="header-capsule">Обзор</span><button id="theme-btn" class="theme-toggle" title="Сменить тему" aria-label="Сменить тему"><span class="theme-icon">◐</span><span class="theme-label">Тема</span></button></div></header>
+ <main class="content-wrap"><div class="article-top"><span class="overline">ОБЗОР</span><span class="page-index">01 / 11</span></div><article class="content"><div class="hero">
+<div class="hero-eyebrow">
+<span class="hero-spark"></span> ЛИЧНАЯ АКАДЕМИЧЕСКАЯ БИБЛИОТЕКА
+</div>
+<h1>
+Один учебник.<br><em>Шесть дисциплин.</em>
+</h1>
+<p class="hero-subtitle">
+Лекции преподавателей, подробные математические выводы, исправленные формулы, пояснения и графики — в одном электронном учебнике.
+</p>
+<div class="hero-meta">
+<span><strong>6</strong> дисциплин</span><span><strong>4</strong> готовые лекции</span><span><strong>15</strong> новых графиков</span>
+</div>
+</div>
+<h2 class="section-title">
+Каталог дисциплин
+</h2>
+<div class="subject-grid">
+<div class="subject-cell">
+<a class="subject-card numerical" href="subjects/numerical-methods/index.html"><span class="subject-icon">∑</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 01</span><strong>Численные методы</strong><span class="subject-description">Аппроксимация, производные, интегралы и численное решение ОДУ</span><span class="subject-pill is-ready">4 лекции · доступны</span></span><span class="subject-arrow">↗</span></a>
+</div>
+<div class="subject-cell">
+<a class="subject-card probability" href="subjects/probability-statistics/index.html"><span class="subject-icon">Ω</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 02</span><strong>ТВиМС</strong><span class="subject-description">Теория вероятностей и математическая статистика</span><span class="subject-pill">Скоро</span></span><span class="subject-arrow">↗</span></a>
+</div>
+<div class="subject-cell">
+<a class="subject-card cryptography" href="subjects/cryptography/index.html"><span class="subject-icon">⊕</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 03</span><strong>Криптография</strong><span class="subject-description">Криптографические методы и алгоритмы</span><span class="subject-pill">Скоро</span></span><span class="subject-arrow">↗</span></a>
+</div>
+<div class="subject-cell">
+<a class="subject-card ml" href="subjects/machine-learning/index.html"><span class="subject-icon">◇</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 04</span><strong>Машинное обучение</strong><span class="subject-description">Модели, обучение, оценивание и эксперименты</span><span class="subject-pill">Скоро</span></span><span class="subject-arrow">↗</span></a>
+</div>
+<div class="subject-cell">
+<a class="subject-card db" href="subjects/databases/index.html"><span class="subject-icon">▤</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 05</span><strong>Базы данных</strong><span class="subject-description">Моделирование, запросы и работа с данными</span><span class="subject-pill">Скоро</span></span><span class="subject-arrow">↗</span></a>
+</div>
+<div class="subject-cell">
+<a class="subject-card graphics" href="subjects/computer-graphics/index.html"><span class="subject-icon">⬡</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 06</span><strong>Компьютерная графика</strong><span class="subject-description">Алгоритмы визуализации и компьютерная геометрия</span><span class="subject-pill">Скоро</span></span><span class="subject-arrow">↗</span></a>
+</div>
+</div>
+<h2 id="как-пользоваться">Как пользоваться</h2>
+<p>Выберите дисциплину на главной странице или в боковом меню. Внутри раздела доступны подробные теоретические главы, иллюстрации и объяснения. Поиск охватывает всю книгу, в том числе содержимое лекций. Оформление, математические формулы и основные средства навигации работают локально.</p>
+<div class="note">
+<p><strong>На текущий момент заполнены только «Численные методы».</strong> Остальные пять дисциплин уже включены в структуру книги, но будут пополняться по вашим лекциям. Мы не подменяем материалы преподавателей искусственно написанными главами.</p>
+</div>
+<h2 id="для-дальнейшего-пополнения">Для дальнейшего пополнения</h2>
+<p>Каждая новая лекция — отдельный редактируемый файл <code>.qmd</code> (Markdown + LaTeX). Его можно положить в соответствующую папку и подключить через <code>book.json</code> для готового сайта и <code>_quarto.yml</code> для Quarto. Сборка HTML выполняется на компьютере, без Codex и расхода токенов на повторное оформление.</p>
+</article><nav class="page-pager" aria-label="Навигация по страницам"><div></div><a class="pager-next" href="subjects/numerical-methods/index.html"><span>Следующая →</span><strong>Численные методы</strong></a></nav><footer class="footnote">Universitas · Шесть дисциплин в одной книге · HTML из Markdown + LaTeX</footer></main>
+</div></div>
+<script>window.UNIBOOK_PREFIX="";</script>
+<script src="assets/search-data.js"></script>
+<script src="assets/book.js"></script>
+</body></html>

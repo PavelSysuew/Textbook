@@ -1,0 +1,27 @@
+---
+title: "Главная"
+---
+
+<div class="hero"><div class="hero-eyebrow"><span class="hero-spark"></span> ЛИЧНАЯ АКАДЕМИЧЕСКАЯ БИБЛИОТЕКА</div><h1>Один учебник.<br><em>Шесть дисциплин.</em></h1><p class="hero-subtitle">Лекции преподавателей, подробные математические выводы, исправленные формулы, пояснения и графики — в одном электронном учебнике.</p><div class="hero-meta"><span><strong>6</strong> дисциплин</span><span><strong>4</strong> готовые лекции</span><span><strong>15</strong> новых графиков</span></div></div>
+
+<h2 class="section-title">Каталог дисциплин</h2>
+<div class="subject-grid">
+<div class="subject-cell"><a class="subject-card numerical" href="subjects/numerical-methods/index.qmd"><span class="subject-icon">∑</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 01</span><strong>Численные методы</strong><span class="subject-description">Аппроксимация, производные, интегралы и численное решение ОДУ</span><span class="subject-pill is-ready">4 лекции · доступны</span></span><span class="subject-arrow">↗</span></a></div>
+<div class="subject-cell"><a class="subject-card probability" href="subjects/probability-statistics/index.qmd"><span class="subject-icon">Ω</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 02</span><strong>ТВиМС</strong><span class="subject-description">Теория вероятностей и математическая статистика</span><span class="subject-pill ">Скоро</span></span><span class="subject-arrow">↗</span></a></div>
+<div class="subject-cell"><a class="subject-card cryptography" href="subjects/cryptography/index.qmd"><span class="subject-icon">⊕</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 03</span><strong>Криптография</strong><span class="subject-description">Криптографические методы и алгоритмы</span><span class="subject-pill ">Скоро</span></span><span class="subject-arrow">↗</span></a></div>
+<div class="subject-cell"><a class="subject-card ml" href="subjects/machine-learning/index.qmd"><span class="subject-icon">◇</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 04</span><strong>Машинное обучение</strong><span class="subject-description">Модели, обучение, оценивание и эксперименты</span><span class="subject-pill ">Скоро</span></span><span class="subject-arrow">↗</span></a></div>
+<div class="subject-cell"><a class="subject-card db" href="subjects/databases/index.qmd"><span class="subject-icon">▤</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 05</span><strong>Базы данных</strong><span class="subject-description">Моделирование, запросы и работа с данными</span><span class="subject-pill ">Скоро</span></span><span class="subject-arrow">↗</span></a></div>
+<div class="subject-cell"><a class="subject-card graphics" href="subjects/computer-graphics/index.qmd"><span class="subject-icon">⬡</span><span class="subject-card-content"><span class="subject-number">НАПРАВЛЕНИЕ 06</span><strong>Компьютерная графика</strong><span class="subject-description">Алгоритмы визуализации и компьютерная геометрия</span><span class="subject-pill ">Скоро</span></span><span class="subject-arrow">↗</span></a></div>
+</div>
+
+## Как пользоваться
+
+Выберите дисциплину на главной странице или в боковом меню. Внутри раздела доступны подробные теоретические главы, иллюстрации и объяснения. Поиск охватывает всю книгу, в том числе содержимое лекций. Оформление, математические формулы и основные средства навигации работают локально.
+
+::: {.note}
+**На текущий момент заполнены только «Численные методы».** Остальные пять дисциплин уже включены в структуру книги, но будут пополняться по вашим лекциям. Мы не подменяем материалы преподавателей искусственно написанными главами.
+:::
+
+## Для дальнейшего пополнения
+
+Каждая новая лекция — отдельный редактируемый файл `.qmd` (Markdown + LaTeX). Его можно положить в соответствующую папку и подключить через `book.json` для готового сайта и `_quarto.yml` для Quarto. Сборка HTML выполняется на компьютере, без Codex и расхода токенов на повторное оформление.

@@ -1,0 +1,56 @@
+project:
+  type: book
+  output-dir: _book
+  execute:
+    enabled: false
+
+lang: ru
+
+book:
+  title: "Университетский учебник"
+  subtitle: "Шесть дисциплин в одном электронном издании"
+  chapters:
+    - index.qmd
+    - part: "Численные методы"
+      chapters:
+        - subjects/numerical-methods/index.qmd
+        - subjects/numerical-methods/lectures/01-least-squares.qmd
+        - subjects/numerical-methods/lectures/02-differentiation.qmd
+        - subjects/numerical-methods/lectures/03-integration.qmd
+        - subjects/numerical-methods/lectures/04-ode.qmd
+    - part: "ТВиМС"
+      chapters:
+        - subjects/probability-statistics/index.qmd
+    - part: "Криптография"
+      chapters:
+        - subjects/cryptography/index.qmd
+    - part: "Машинное обучение"
+      chapters:
+        - subjects/machine-learning/index.qmd
+    - part: "Базы данных"
+      chapters:
+        - subjects/databases/index.qmd
+    - part: "Компьютерная графика"
+      chapters:
+        - subjects/computer-graphics/index.qmd
+  page-navigation: true
+  search: true
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 1
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-copy: true
+    smooth-scroll: true
+    html-math-method: mathjax
+
+editor: source

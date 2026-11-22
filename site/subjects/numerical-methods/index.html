@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Единый университетский учебник по шести дисциплинам">
+<title>Численные методы · Университетский учебник</title>
+<link rel="stylesheet" href="../../styles.css">
+<script>try{let theme=localStorage.getItem('unibook_theme');if(theme==='dark'||theme==='light')document.documentElement.dataset.theme=theme;}catch(e){}</script>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar" id="sidebar" aria-label="Навигация по книге">
+ <a class="brand" href="../../index.html"><span class="brand-icon">U<span>·</span></span><span class="brand-copy">UNIVERSITAS<small>ЛИЧНАЯ БИБЛИОТЕКА</small></span></a>
+ <div class="sidebar-search"><div class="search-field"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search-input" type="search" autocomplete="off" aria-label="Поиск по книге" placeholder="Поиск по учебнику…"><kbd>/</kbd></div><div id="search-results" aria-live="polite"></div></div>
+ <nav class="book-nav"><a class="nav-home " href="../../index.html"><span class="home-glyph">⌂</span> Главная страница</a>
+<div class="sidebar-caption">Дисциплины</div>
+<details class="subject-nav tone-numerical" open>
+<summary><span class="mini-symbol">∑</span><span class="nav-subject-title">Численные методы<small>4 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link active" href="../../subjects/numerical-methods/index.html">О разделе</a>
+<a class="chapter-link" href="../../subjects/numerical-methods/lectures/01-least-squares.html">Метод наименьших квадратов</a>
+<a class="chapter-link" href="../../subjects/numerical-methods/lectures/02-differentiation.html">Численное дифференцирование</a>
+<a class="chapter-link" href="../../subjects/numerical-methods/lectures/03-integration.html">Численное интегрирование</a>
+<a class="chapter-link" href="../../subjects/numerical-methods/lectures/04-ode.html">Задача Коши и методы Эйлера</a>
+</div></details>
+<details class="subject-nav tone-probability">
+<summary><span class="mini-symbol">Ω</span><span class="nav-subject-title">ТВиМС<small>0 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="../../subjects/probability-statistics/index.html">О разделе</a>
+</div></details>
+<details class="subject-nav tone-cryptography">
+<summary><span class="mini-symbol">⊕</span><span class="nav-subject-title">Криптография<small>0 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="../../subjects/cryptography/index.html">О разделе</a>
+</div></details>
+<details class="subject-nav tone-ml">
+<summary><span class="mini-symbol">◇</span><span class="nav-subject-title">Машинное обучение<small>0 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="../../subjects/machine-learning/index.html">О разделе</a>
+</div></details>
+<details class="subject-nav tone-db">
+<summary><span class="mini-symbol">▤</span><span class="nav-subject-title">Базы данных<small>0 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="../../subjects/databases/index.html">О разделе</a>
+</div></details>
+<details class="subject-nav tone-graphics">
+<summary><span class="mini-symbol">⬡</span><span class="nav-subject-title">Компьютерная графика<small>0 лекц.</small></span><span class="expand-indicator">⌄</span></summary>
+<div class="subject-chapters">
+<a class="chapter-link" href="../../subjects/computer-graphics/index.html">О разделе</a>
+</div></details></nav>
+ <div class="sidebar-footer"><span class="online-indicator"></span> Электронный учебник <small>6 дисциплин · единый поиск</small></div>
+</aside>
+<div id="scrim" class="scrim" aria-hidden="true"></div>
+<div class="workspace">
+ <header class="topbar"><div class="header-left"><button class="mobile-menu" id="menu-btn" aria-label="Открыть меню">☰</button><a href="../../index.html" class="breadcrumb-root">Учебник</a><span class="crumb-sep">/</span><span class="breadcrumb-current">Численные методы</span></div><div class="header-right"><span class="header-capsule">Численные методы</span><button id="theme-btn" class="theme-toggle" title="Сменить тему" aria-label="Сменить тему"><span class="theme-icon">◐</span><span class="theme-label">Тема</span></button></div></header>
+ <main class="content-wrap"><div class="article-top"><span class="overline">ЧИСЛЕННЫЕ МЕТОДЫ</span><span class="page-index">02 / 11</span></div><article class="content"><details class="page-toc"><summary>На этой странице <span>⌄</span></summary><nav aria-label="Разделы страницы"><a class="toc-link toc-level-2" href="#содержание-тома">Содержание тома</a>
+<a class="toc-link toc-level-2" href="#как-устроен-конспект">Как устроен конспект</a></nav></details><h1 id="численные-методы">Численные методы</h1>
+<div class="subject-banner">
+<span class="eyebrow">ТОМ I · МАТЕМАТИКА И ЧИСЛЕННЫЕ АЛГОРИТМЫ</span>
+<p>
+Большой теоретический конспект по четырём темам рукописных университетских лекций. <strong>Порядок изложения и обозначения преподавателя сохранены</strong>; промежуточные выкладки подробно раскрыты, математические неточности исправлены в отдельных пометках.
+</p>
+<span class="status-dot ready">4 подробные главы</span>
+</div>
+<h2 id="содержание-тома">Содержание тома</h2>
+<ol type="1">
+<li><a href="lectures/01-least-squares.html"><strong>Метод наименьших квадратов</strong></a> — табличное приближение, прямая, парабола, нормальные уравнения, общий многочлен и базисные функции.</li>
+<li><a href="lectures/02-differentiation.html"><strong>Численное дифференцирование</strong></a> — определение производной, интерполяционный многочлен Лагранжа, все трёхточечные формулы, погрешность.</li>
+<li><a href="lectures/03-integration.html"><strong>Численное интегрирование</strong></a> — трапеции, прямоугольники, шаг сетки, метод Рунге–Ромберга, вывод метода Симпсона.</li>
+<li><a href="lectures/04-ode.html"><strong>Задача Коши и методы Эйлера</strong></a> — постановка ОДУ, явный метод Эйлера, метод Эйлера–Коши, метод средней точки, порядки точности.</li>
+</ol>
+<h2 id="как-устроен-конспект">Как устроен конспект</h2>
+<div class="explain">
+<p><strong>Основной текст</strong> идёт в последовательности исходных лекций. Для каждого способа подробно показаны математические рассуждения и выводы. В дополнительных блоках <strong>«Объяснение»</strong> обсуждается смысл формул, а в блоках <strong>«Исправление / уточнение»</strong> отдельно приводятся корректировки исходных неточностей. Иллюстрации построены заново по математическим моделям, без вложенных сканов тетради.</p>
+</div>
+<div class="note">
+<p><strong>Границы точности.</strong> Рукопись местами неоднозначна, поэтому восстановленные фразы не претендуют на буквальное совпадение с каждым словом преподавателя. Но основные обозначения, темы, формулы и их логика сохранены, а дополнительные выводы явно отделены от исходного курса.</p>
+</div>
+<p><strong>Практикума, программ и лабораторных работ в этом издании нет:</strong> книга предназначена для подробного изучения теории.</p>
+</article><nav class="page-pager" aria-label="Навигация по страницам"><a class="pager-prev" href="../../index.html"><span>← Предыдущая</span><strong>Главная</strong></a><a class="pager-next" href="../../subjects/numerical-methods/lectures/01-least-squares.html"><span>Следующая →</span><strong>Метод наименьших квадратов</strong></a></nav><footer class="footnote">Universitas · Шесть дисциплин в одной книге · HTML из Markdown + LaTeX</footer></main>
+</div></div>
+<script>window.UNIBOOK_PREFIX="../../";</script>
+<script src="../../assets/search-data.js"></script>
+<script src="../../assets/book.js"></script>
+</body></html>

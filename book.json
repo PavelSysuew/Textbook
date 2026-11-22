@@ -1,0 +1,87 @@
+{
+  "title": "Университетский учебник — шесть дисциплин",
+  "year": "2026",
+  "subjects": [
+    {
+      "id": "numerical-methods",
+      "title": "Численные методы",
+      "short": "ЧМ",
+      "symbol": "∑",
+      "tone": "numerical",
+      "description": "Подробные лекции с полными математическими выводами, пояснениями и графиками",
+      "index": "subjects/numerical-methods/index.qmd",
+      "pages": [
+        {
+          "file": "subjects/numerical-methods/lectures/01-least-squares.qmd",
+          "title": "Метод наименьших квадратов",
+          "label": "Лекция"
+        },
+        {
+          "file": "subjects/numerical-methods/lectures/02-differentiation.qmd",
+          "title": "Численное дифференцирование",
+          "label": "Лекция"
+        },
+        {
+          "file": "subjects/numerical-methods/lectures/03-integration.qmd",
+          "title": "Численное интегрирование",
+          "label": "Лекция"
+        },
+        {
+          "file": "subjects/numerical-methods/lectures/04-ode.qmd",
+          "title": "Задача Коши и методы Эйлера",
+          "label": "Лекция"
+        }
+      ]
+    },
+    {
+      "id": "probability-statistics",
+      "title": "ТВиМС",
+      "short": "ТВ",
+      "symbol": "Ω",
+      "tone": "probability",
+      "description": "Теория вероятностей и математическая статистика",
+      "index": "subjects/probability-statistics/index.qmd",
+      "pages": []
+    },
+    {
+      "id": "cryptography",
+      "title": "Криптография",
+      "short": "КР",
+      "symbol": "⊕",
+      "tone": "cryptography",
+      "description": "Криптографические методы и алгоритмы",
+      "index": "subjects/cryptography/index.qmd",
+      "pages": []
+    },
+    {
+      "id": "machine-learning",
+      "title": "Машинное обучение",
+      "short": "МО",
+      "symbol": "◇",
+      "tone": "ml",
+      "description": "Модели, обучение, оценивание и эксперименты",
+      "index": "subjects/machine-learning/index.qmd",
+      "pages": []
+    },
+    {
+      "id": "databases",
+      "title": "Базы данных",
+      "short": "БД",
+      "symbol": "▤",
+      "tone": "db",
+      "description": "Моделирование, запросы и работа с данными",
+      "index": "subjects/databases/index.qmd",
+      "pages": []
+    },
+    {
+      "id": "computer-graphics",
+      "title": "Компьютерная графика",
+      "short": "КГ",
+      "symbol": "⬡",
+      "tone": "graphics",
+      "description": "Алгоритмы визуализации и компьютерная геометрия",
+      "index": "subjects/computer-graphics/index.qmd",
+      "pages": []
+    }
+  ]
+}
