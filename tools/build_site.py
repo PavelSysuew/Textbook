@@ -74,7 +74,48 @@ def nav_html(current: dict, prefix: str) -> str:
     return '\n'.join(parts)
 
 
-def make_toc(fragment: str) -> str:
+def take_manual_toc(fragment: str) -> tuple[str, str]:
+    """Move a leading Markdown section named «Содержание» into the page TOC.
+
+    Some supplied lectures contain a carefully prepared, deeply nested outline.
+    It is more informative than a TOC built only from h2/h3 headings, but it
+    must not be shown a second time in the article body.
+    """
+    pattern = re.compile(
+        r'<h2\s+id="[^"]+"[^>]*>\s*Содержание\s*</h2>\s*'
+        r'(?P<body>.*?)(?=<h[12]\b)',
+        flags=re.S | re.I,
+    )
+    match = pattern.search(fragment)
+    if not match or 'href="#' not in match.group('body'):
+        return '', fragment
+    outline = match.group('body').strip()
+    outline = re.sub(r'<annotation\b[^>]*>.*?</annotation>', '', outline, flags=re.S)
+    outline = re.sub(r'<ol\b', '<ol class="toc-tree"', outline, count=1)
+    fragment = fragment[:match.start()] + fragment[match.end():]
+    return outline, fragment.lstrip()
+
+
+def plural_ru(number: int, forms: tuple[str, str, str]) -> str:
+    remainder100 = number % 100
+    remainder10 = number % 10
+    if 11 <= remainder100 <= 14:
+        return forms[2]
+    if remainder10 == 1:
+        return forms[0]
+    if 2 <= remainder10 <= 4:
+        return forms[1]
+    return forms[2]
+
+
+def make_toc(fragment: str, manual_outline: str = '') -> str:
+    if manual_outline:
+        item_count = len(re.findall(r'<a\s+href="#', manual_outline))
+        item_label = plural_ru(item_count, ('тема', 'темы', 'тем'))
+        return (f'<details class="page-toc"><summary><span class="toc-summary-title">'
+                f'<span class="toc-summary-icon" aria-hidden="true">≡</span>На этой странице</span>'
+                f'<span class="toc-summary-meta">{item_count} {item_label} <span class="toc-chevron" aria-hidden="true">⌄</span></span>'
+                f'</summary><nav class="toc-outline" aria-label="Разделы страницы">{manual_outline}</nav></details>')
     matches = re.findall(r'<h([23])\s+id="([^"]+)"[^>]*>(.*?)</h\1>', fragment, flags=re.S)
     links=[]
     for level, id_, raw in matches:
@@ -86,7 +127,38 @@ def make_toc(fragment: str) -> str:
         if not txt: continue
         links.append(f'<a class="toc-link toc-level-{level}" href="#{html.escape(id_,quote=True)}">{html.escape(txt)}</a>')
     if len(links)<2: return ''
-    return '<details class="page-toc"><summary>На этой странице <span>⌄</span></summary><nav aria-label="Разделы страницы">'+'\n'.join(links)+'</nav></details>'
+    section_label = plural_ru(len(links), ('раздел', 'раздела', 'разделов'))
+    return (f'<details class="page-toc"><summary><span class="toc-summary-title">'
+            f'<span class="toc-summary-icon" aria-hidden="true">≡</span>На этой странице</span>'
+            f'<span class="toc-summary-meta">{len(links)} {section_label} <span class="toc-chevron" aria-hidden="true">⌄</span></span>'
+            f'</summary><nav class="toc-links" aria-label="Разделы страницы">'+'\n'.join(links)+'</nav></details>')
+
+
+def metadata_title(filepath: Path, fallback: str) -> str:
+    source = filepath.read_text(encoding='utf8')
+    match = re.match(r'^---\s*\n(?P<meta>.*?)\n---\s*(?:\n|$)', source, flags=re.S)
+    if not match:
+        return fallback
+    title = re.search(r'^title:\s*["\']?(.*?)["\']?\s*$', match.group('meta'), flags=re.M)
+    return title.group(1).strip() if title else fallback
+
+
+def prepare_article(fragment: str, title: str, is_lecture: bool) -> tuple[str, str]:
+    """Ensure lectures have one visible title, followed by one page outline."""
+    if is_lecture and not re.search(r'<h1\b', fragment):
+        fragment = f'<h1 class="lecture-title">{html.escape(title)}</h1>\n' + fragment
+    fragment = re.sub(r'<h1\b(?![^>]*\bclass=)', '<h1 class="lecture-title"', fragment, count=1)
+    manual_outline, fragment = take_manual_toc(fragment)
+    toc = make_toc(fragment, manual_outline)
+
+    # The page title belongs before its outline. Pandoc otherwise leaves it in
+    # the body, while the generator prepends the TOC above it.
+    heading = ''
+    h1 = re.match(r'\s*(<h1\b.*?</h1>)\s*', fragment, flags=re.S)
+    if h1:
+        heading = h1.group(1)
+        fragment = fragment[h1.end():]
+    return heading + toc, fragment
 
 
 def rewrite_qmd_links(fragment: str) -> str:
@@ -100,8 +172,12 @@ def render_doc(page: dict, idx: int) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     depth = len(Path(qmd).parts)-1
     prefix = '../'*depth
-    main = rewrite_qmd_links(pandoc_html(ROOT/qmd))
-    toc = '' if qmd == 'index.qmd' else make_toc(main)
+    filepath = ROOT/qmd
+    main = rewrite_qmd_links(pandoc_html(filepath))
+    page_heading = metadata_title(filepath, title)
+    article_header, main = prepare_article(main, page_heading, page.get('label') == 'Лекция')
+    if qmd == 'index.qmd':
+        article_header = ''
     subject = next((s for s in MANIFEST['subjects'] if s['id'] == page['subject']),None)
     subject_link = f'<a href="{prefix}{page_path(subject["index"])}">{html.escape(subject["title"])}</a> <span class="crumb-sep">/</span> ' if subject and page['file'] != subject['index'] else ''
     prev = PAGES[idx-1] if idx else None
@@ -128,7 +204,7 @@ def render_doc(page: dict, idx: int) -> None:
 <div id="scrim" class="scrim" aria-hidden="true"></div>
 <div class="workspace">
  <header class="topbar"><div class="header-left"><button class="mobile-menu" id="menu-btn" aria-label="Открыть меню">☰</button><a href="{prefix}index.html" class="breadcrumb-root">Учебник</a><span class="crumb-sep">/</span>{subject_link}<span class="breadcrumb-current">{html.escape('Каталог дисциплин' if not subject else title)}</span></div><div class="header-right"><span class="header-capsule">{html.escape(cat)}</span><button id="theme-btn" class="theme-toggle" title="Сменить тему" aria-label="Сменить тему"><span class="theme-icon">◐</span><span class="theme-label">Тема</span></button></div></header>
- <main class="content-wrap"><div class="article-top"><span class="overline">{html.escape(cat.upper())}</span><span class="page-index">{idx+1:02d} / {len(PAGES):02d}</span></div><article class="content">{toc}{main}</article><nav class="page-pager" aria-label="Навигация по страницам">{prev_link}{next_link}</nav><footer class="footnote">Sysuew · Шесть дисциплин в одной книге · HTML из Markdown + LaTeX</footer></main>
+ <main class="content-wrap"><div class="article-top"><span class="overline">{html.escape(cat.upper())}</span><span class="page-index">{idx+1:02d} / {len(PAGES):02d}</span></div><article class="content">{article_header}{main}</article><nav class="page-pager" aria-label="Навигация по страницам">{prev_link}{next_link}</nav><footer class="footnote">Sysuew · Шесть дисциплин в одной книге · HTML из Markdown + LaTeX</footer></main>
 </div></div>
 <script>window.UNIBOOK_PREFIX={json.dumps(prefix)};</script>
 <script src="{prefix}assets/search-data.js"></script>

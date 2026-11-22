@@ -100,12 +100,24 @@ a:hover{color:var(--accent-deep)}
 .content .correction{background:var(--warning);border-left-color:var(--warnline)}
 .content .note{background:var(--soft)}
 .content .explain>p:first-child,.content .correction>p:first-child,.content .note>p:first-child{margin-top:0}
-.page-toc{background:var(--paper);border:1px solid var(--line);border-radius:11px;margin-bottom:26px;padding:0 17px;box-shadow:0 3px 8px rgba(0,0,0,.012)}
-.page-toc summary{cursor:pointer;color:var(--muted);font-size:12px;font-weight:700;padding:12px 0;display:flex;justify-content:space-between;align-items:center;list-style:none}.page-toc summary::-webkit-details-marker{display:none}
-.page-toc nav{display:flex;flex-direction:column;gap:2px;max-height:min(58vh,540px);overflow-y:auto;padding:2px 8px 14px 0;scrollbar-width:thin}
-.toc-link{display:block;font-size:12px;line-height:1.5;color:var(--muted);text-decoration:none;padding:4px 7px;border-radius:6px}.toc-link:hover{color:var(--accent);background:var(--soft)}
-.toc-level-2{color:var(--ink);font-weight:750;margin-top:5px}
-.toc-level-3{padding-left:25px;font-size:11px}
+.page-toc{background:linear-gradient(145deg,var(--paper),var(--soft));border:1px solid var(--line);border-radius:15px;margin:0 0 34px;padding:0 19px;box-shadow:0 8px 26px rgba(25,42,65,.055);overflow:hidden}
+.page-toc[open]{border-color:color-mix(in srgb,var(--accent) 28%,var(--line))}
+.page-toc summary{cursor:pointer;color:var(--ink);font-size:14px;font-weight:760;padding:16px 2px;display:flex;justify-content:space-between;align-items:center;gap:15px;list-style:none}.page-toc summary::-webkit-details-marker{display:none}
+.toc-summary-title,.toc-summary-meta{display:flex;align-items:center}.toc-summary-title{gap:10px}.toc-summary-meta{gap:9px;color:var(--muted);font-size:11px;font-weight:650;white-space:nowrap}
+.toc-summary-icon{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-size:18px;line-height:1}
+.toc-chevron{font-size:18px;line-height:1;transition:transform .2s}.page-toc[open] .toc-chevron{transform:rotate(180deg)}
+.page-toc nav{max-height:min(66vh,660px);overflow-y:auto;padding:3px 5px 18px 0;border-top:1px solid var(--line);scrollbar-width:thin}
+.page-toc .toc-links{display:flex;flex-direction:column;gap:2px;padding-top:10px}
+.toc-link{display:block;font-size:13px;line-height:1.5;color:var(--muted);text-decoration:none;padding:6px 9px;border-radius:7px}.toc-link:hover{color:var(--accent);background:var(--accent-soft)}
+.toc-level-2{color:var(--ink);font-weight:750;margin-top:4px}
+.toc-level-3{padding-left:28px;font-size:12px}
+.toc-tree{margin:0;padding:10px 0 0 31px;counter-reset:toc-item;color:var(--muted)}
+.toc-tree>li{padding:7px 7px 8px 4px;margin:0;border-bottom:1px solid var(--line)}.toc-tree>li:last-child{border-bottom:0}
+.toc-tree>li::marker{color:var(--accent);font-weight:800}
+.toc-tree a{color:var(--ink);font-size:13px;font-weight:730;text-decoration:none;line-height:1.45}.toc-tree a:hover{color:var(--accent)}
+.toc-tree ul{margin:7px 0 0;padding-left:21px;list-style:none}.toc-tree ul li{position:relative;margin:2px 0;padding-left:13px;line-height:1.35}.toc-tree ul li::before{content:"";position:absolute;left:0;top:.68em;width:4px;height:4px;border-radius:50%;background:var(--muted);opacity:.65}
+.toc-tree ul a{font-size:12px;font-weight:540;color:var(--muted)}
+.lecture-title{max-width:790px;text-wrap:balance}
 .page-pager{border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:15px;padding-top:25px;margin-top:65px}
 .page-pager a{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--ink);padding:13px 17px;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
 .page-pager a:hover{border-color:var(--accent);color:var(--accent)}
@@ -144,7 +156,7 @@ a:hover{color:var(--accent-deep)}
 .status-dot::before{content:"";width:6px;height:6px;background:#b99c4d;border-radius:50%}.status-dot.ready::before{background:#38a77e}
 @media(max-width:1090px){.shell{grid-template-columns:254px minmax(0,1fr)}.sidebar{padding-left:9px;padding-right:9px}.content-wrap{padding-left:31px;padding-right:31px}.topbar{padding-left:31px;padding-right:31px}}
 @media(max-width:850px){.shell{grid-template-columns:1fr}.sidebar{position:fixed;left:0;top:0;bottom:0;width:min(310px,87vw);height:100vh;transform:translateX(-105%);transition:transform .2s;box-shadow:var(--shadow)}.sidebar.open{transform:translateX(0)}.scrim.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:15}.mobile-menu{display:inline-block}.header-capsule{display:none}.topbar{padding:12px 20px}.content-wrap{padding:26px 24px 65px}}
-@media(max-width:570px){body{font-size:15px}.content-wrap{padding:22px 17px 55px}.header-left{gap:7px}.header-left>a:not(.breadcrumb-root){display:none}.theme-label{display:none}.theme-icon{margin:0}.hero{padding:28px 22px 25px;margin-top:0}.hero h1{font-size:38px}.hero-meta{gap:11px}.hero-meta span{padding:0 10px}.subject-grid{grid-template-columns:1fr;gap:11px}.subject-card{min-height:140px;padding:18px}.content h1{font-size:31px}.content h2{font-size:23px}.page-pager{grid-template-columns:1fr}.page-toc nav{grid-template-columns:1fr}}
+@media(max-width:570px){body{font-size:15px}.content-wrap{padding:22px 17px 55px}.header-left{gap:7px}.header-left>a:not(.breadcrumb-root){display:none}.theme-label{display:none}.theme-icon{margin:0}.hero{padding:28px 22px 25px;margin-top:0}.hero h1{font-size:38px}.hero-meta{gap:11px}.hero-meta span{padding:0 10px}.subject-grid{grid-template-columns:1fr;gap:11px}.subject-card{min-height:140px;padding:18px}.content h1{font-size:31px}.content h2{font-size:23px}.page-pager{grid-template-columns:1fr}.page-toc{padding:0 13px}.page-toc summary{padding:13px 0}.toc-summary-meta{font-size:0}.toc-summary-meta .toc-chevron{font-size:18px}.toc-tree{padding-left:26px}.toc-tree a{font-size:12.5px}.toc-tree ul a{font-size:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.subject-card,.sidebar{transition:none}}
 
 /* Расширенное оформление университетских лекций */

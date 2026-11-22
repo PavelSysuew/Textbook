@@ -51,17 +51,7 @@
 <div id="scrim" class="scrim" aria-hidden="true"></div>
 <div class="workspace">
  <header class="topbar"><div class="header-left"><button class="mobile-menu" id="menu-btn" aria-label="Открыть меню">☰</button><a href="../../../index.html" class="breadcrumb-root">Учебник</a><span class="crumb-sep">/</span><a href="../../../subjects/probability-statistics/index.html">ТВиМС</a> <span class="crumb-sep">/</span> <span class="breadcrumb-current">Лекция 1. Многомерное нормальное распределение</span></div><div class="header-right"><span class="header-capsule">ТВиМС</span><button id="theme-btn" class="theme-toggle" title="Сменить тему" aria-label="Сменить тему"><span class="theme-icon">◐</span><span class="theme-label">Тема</span></button></div></header>
- <main class="content-wrap"><div class="article-top"><span class="overline">ТВИМС</span><span class="page-index">05 / 09</span></div><article class="content"><details class="page-toc"><summary>На этой странице <span>⌄</span></summary><nav aria-label="Разделы страницы"><a class="toc-link toc-level-2" href="#содержание">Содержание</a>
-<a class="toc-link toc-level-2" href="#normal-variable">1. Нормально распределённая случайная величина</a>
-<a class="toc-link toc-level-2" href="#normal-distribution">2. Нормальное распределение</a>
-<a class="toc-link toc-level-2" href="#vector-moments">3. Математическое ожидание и ковариационная матрица случайного вектора</a>
-<a class="toc-link toc-level-2" href="#characteristic-function">4. Характеристическая функция</a>
-<a class="toc-link toc-level-2" href="#standardization">5. Замечание</a>
-<a class="toc-link toc-level-2" href="#standard-density">6. Плотность распределения вектора Y</a>
-<a class="toc-link toc-level-2" href="#covariance-of-x">7. Ковариационная матрица X</a>
-<a class="toc-link toc-level-2" href="#final-identity">8. Итоговое равенство</a>
-<a class="toc-link toc-level-2" href="#cholesky">9. Разложение Холецкого</a></nav></details><h2 id="содержание">Содержание</h2>
-<ol type="1">
+ <main class="content-wrap"><div class="article-top"><span class="overline">ТВИМС</span><span class="page-index">05 / 09</span></div><article class="content"><h1 class="lecture-title">Лекция 1. Введение в математическую статистику. Многомерное нормальное распределение</h1><details class="page-toc"><summary><span class="toc-summary-title"><span class="toc-summary-icon" aria-hidden="true">≡</span>На этой странице</span><span class="toc-summary-meta">50 тем <span class="toc-chevron" aria-hidden="true">⌄</span></span></summary><nav class="toc-outline" aria-label="Разделы страницы"><ol class="toc-tree" type="1">
 <li><a href="#normal-variable">Нормально распределённая случайная величина</a>
 <ul>
 <li><a href="#normal-law">Запись нормального закона и его параметры</a></li>
@@ -107,12 +97,12 @@
 <li><a href="#standardized-covariance">Ковариационная матрица стандартизованного вектора</a></li>
 <li><a href="#inverse-standardization">Стандартный нормальный закон и обратное преобразование</a></li>
 </ul></li>
-<li><a href="#standard-density">Плотность распределения вектора <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math></a>
+<li><a href="#standard-density">Плотность распределения вектора <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi></semantics></math></a>
 <ul>
 <li><a href="#density-factorization">Формула плотности и её разложение в произведение</a></li>
 <li><a href="#coordinate-means">Математическое ожидание каждой компоненты</a></li>
 </ul></li>
-<li><a href="#covariance-of-x">Ковариационная матрица <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math></a>
+<li><a href="#covariance-of-x">Ковариационная матрица <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi></semantics></math></a>
 <ul>
 <li><a href="#coordinate-covariances">Ковариации отдельных координат</a></li>
 <li><a href="#matrix-expectation">Матричная формула ковариации</a></li>
@@ -130,8 +120,7 @@
 <li><a href="#cholesky-below-diagonal">Вычисление элементов ниже диагонали</a></li>
 <li><a href="#cholesky-column-order">Порядок вычислений по столбцам</a></li>
 </ul></li>
-</ol>
-<h2 id="normal-variable">1. Нормально распределённая случайная величина</h2>
+</ol></nav></details><h2 id="normal-variable">1. Нормально распределённая случайная величина</h2>
 <p><span id="normal-law"></span>Пусть случайная величина <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math> имеет нормальное распределение</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>∼</mo><mi>N</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
 X\sim N(m,\sigma^2). \tag{*}
