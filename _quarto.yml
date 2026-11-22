@@ -18,7 +18,7 @@ book:
         - subjects/numerical-methods/lectures/02-differentiation.qmd
         - subjects/numerical-methods/lectures/03-integration.qmd
         - subjects/numerical-methods/lectures/04-ode.qmd
-        - subjects/numerical-methods/lectures/lecture01.qmd
+        - subjects/numerical-methods/lectures/lecture-01-gauss-sweep-jacobi-detailed.qmd
     - part: "ТВиМС"
       chapters:
         - subjects/probability-statistics/index.qmd
