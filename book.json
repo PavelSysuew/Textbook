@@ -30,6 +30,11 @@
           "file": "subjects/numerical-methods/lectures/04-ode.qmd",
           "title": "Задача Коши и методы Эйлера",
           "label": "Лекция"
+        },
+        {
+          "file": "subjects/numerical-methods/lectures/lecture01.qmd",
+          "title": "Лекция №1",
+          "label": "Лекция"
         }
       ]
     },
