@@ -52,7 +52,23 @@
       "tone": "ml",
       "description": "Модели, обучение, оценивание и эксперименты",
       "index": "subjects/machine-learning/index.qmd",
-      "pages": []
+      "pages": [
+        {
+          "file": "subjects/machine-learning/lectures/lecture-01-intro-linear-regression.qmd",
+          "title": "Лекция 1. Введение. Линейная регрессия",
+          "label": "Лекция"
+        },
+        {
+          "file": "subjects/machine-learning/lectures/lecture-02-linear-regression.qmd",
+          "title": "Лекция 2. Линейная регрессия",
+          "label": "Лекция"
+        },
+        {
+          "file": "subjects/machine-learning/lectures/lecture-03-classification.qmd",
+          "title": "Лекция 3. Классификация",
+          "label": "Лекция"
+        }
+      ]
     },
     {
       "id": "databases",

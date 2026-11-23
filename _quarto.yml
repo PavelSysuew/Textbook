@@ -25,6 +25,9 @@ book:
     - part: "Машинное обучение"
       chapters:
         - subjects/machine-learning/index.qmd
+        - subjects/machine-learning/lectures/lecture-01-intro-linear-regression.qmd
+        - subjects/machine-learning/lectures/lecture-02-linear-regression.qmd
+        - subjects/machine-learning/lectures/lecture-03-classification.qmd
     - part: "Базы данных"
       chapters:
         - subjects/databases/index.qmd
